@@ -617,7 +617,11 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px;te
 
       <div class="contact-form reveal">
         <div class="section-tag">Devis gratuit</div>
-        <form action="https://formspree.io/f/xpwzgpqv" method="POST" id="contactForm">
+        <form action="https://formsubmit.co/zambolionel043@gmail.com" method="POST" id="contactForm">
+          <input type="hidden" name="_subject" value="🚀 Nouveau projet NEXORA Studio">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://notresiagroupe-crypto.github.io/nexora/#contact">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Prénom *</label>
@@ -750,19 +754,15 @@ const obs = new IntersectionObserver(entries=>{
 },{threshold:.1});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-// Form
-document.getElementById('contactForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const btn=this.querySelector('.btn-submit');
-  btn.textContent='✓ Message envoyé !';
-  btn.style.background='#22c55e';
-  btn.style.boxShadow='0 0 30px rgba(34,197,94,.4)';
-  setTimeout(()=>{
-    btn.textContent='🚀 Envoyer ma demande';
-    btn.style.background='';btn.style.boxShadow='';
-    this.reset();
-  },4000);
-});
+// Form — let formsubmit.co handle the POST natively
+const form = document.getElementById('contactForm');
+if(form) {
+  form.addEventListener('submit', function(){
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = '⏳ Envoi en cours…';
+    btn.disabled = true;
+  });
+}
 </script>
 </body>
 </html>
