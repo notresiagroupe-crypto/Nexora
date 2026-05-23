@@ -253,6 +253,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px;te
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#process">Processus</a></li>
     <li><a href="#videos">Vidéos</a></li>
+    <li><a href="#dashboard">CRM</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Devis gratuit →</a>
@@ -616,7 +617,7 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px;te
 
       <div class="contact-form reveal">
         <div class="section-tag">Devis gratuit</div>
-        <form action="https://formspree.io/f/zambolionel043" method="POST" id="contactForm">
+        <form action="https://formspree.io/f/xpwzgpqv" method="POST" id="contactForm">
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Prénom *</label>
@@ -648,6 +649,65 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:40px;te
           <button type="submit" class="btn-submit">🚀 Envoyer ma demande</button>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRM DASHBOARD -->
+<section id="dashboard" style="background:var(--dark);padding:100px 40px">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:48px">
+      <div class="section-tag" style="justify-content:center">Espace Freelance</div>
+      <h2 class="section-title">CRM <span style="color:var(--gold)">PROSPECTION</span></h2>
+      <p class="section-sub" style="margin:0 auto">Gérez vos prospects, suivez vos conversions et pilotez votre activité depuis un seul endroit.</p>
+    </div>
+
+    <!-- Feature cards -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:40px" class="reveal">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:all .3s" onmouseover="this.style.borderColor='rgba(240,192,64,.3)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:2rem;margin-bottom:10px">🔍</div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px">Prospects</div>
+        <div style="font-size:.78rem;color:var(--muted)">Tous vos leads en un tableau filtrable</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:all .3s" onmouseover="this.style.borderColor='rgba(240,192,64,.3)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:2rem;margin-bottom:10px">📊</div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px">Dashboard</div>
+        <div style="font-size:.78rem;color:var(--muted)">Stats en temps réel et taux de conversion</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:all .3s" onmouseover="this.style.borderColor='rgba(240,192,64,.3)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:2rem;margin-bottom:10px">✉️</div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px">Templates</div>
+        <div style="font-size:.78rem;color:var(--muted)">Messages prêts par secteur d'activité</div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;text-align:center;transition:all .3s" onmouseover="this.style.borderColor='rgba(240,192,64,.3)'" onmouseout="this.style.borderColor='var(--border)'">
+        <div style="font-size:2rem;margin-bottom:10px">📈</div>
+        <div style="font-weight:700;font-size:.9rem;margin-bottom:6px">Rapport quotidien</div>
+        <div style="font-size:.78rem;color:var(--muted)">Résumé à 7h00 dans ta boîte mail</div>
+      </div>
+    </div>
+
+    <!-- Embedded CRM -->
+    <div class="reveal" style="background:var(--card);border:1px solid rgba(240,192,64,.2);border-radius:20px;overflow:hidden;box-shadow:0 0 60px rgba(240,192,64,.05)">
+      <div style="padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:10px;height:10px;border-radius:50%;background:#ef4444"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#f59e0b"></div>
+          <div style="width:10px;height:10px;border-radius:50%;background:#22c55e"></div>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:1px;color:var(--muted);margin-left:8px">NEXORA CRM — Prospection Dashboard</span>
+        </div>
+        <a href="https://app.base44.com/apps/69cfbd6c4ad311d1ec530908" target="_blank"
+           style="font-size:.74rem;font-weight:600;color:var(--gold);text-decoration:none;background:rgba(240,192,64,.08);border:1px solid rgba(240,192,64,.2);padding:5px 14px;border-radius:100px;transition:all .2s"
+           onmouseover="this.style.background='rgba(240,192,64,.15)'"
+           onmouseout="this.style.background='rgba(240,192,64,.08)'">
+          Ouvrir en plein écran ↗
+        </a>
+      </div>
+      <iframe
+        src="https://app.base44.com/apps/69cfbd6c4ad311d1ec530908"
+        style="width:100%;height:700px;border:none;display:block"
+        loading="lazy"
+        title="NEXORA CRM Dashboard">
+      </iframe>
     </div>
   </div>
 </section>
