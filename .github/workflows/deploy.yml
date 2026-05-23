@@ -10,15 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v3.0
-        with:
-          publish-dir: '.'
-          production-branch: main
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          deploy-message: "NEXORA Studio - Deploy"
-          netlify-site-name: nexora-studio
+
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+
+      - name: Create site if needed & Deploy
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-        timeout-minutes: 5
+        run: |
+          # Try to deploy to existing site, create if not exists
+          netlify deploy \
+            --auth "$NETLIFY_AUTH_TOKEN" \
+            --dir "." \
+            --site "nexora-studio" \
+            --prod \
+            --message "NEXORA Studio deploy" 2>&1 || \
+          netlify sites:create \
+            --auth "$NETLIFY_AUTH_TOKEN" \
+            --name "nexora-studio" && \
+          netlify deploy \
+            --auth "$NETLIFY_AUTH_TOKEN" \
+            --dir "." \
+            --site "nexora-studio" \
+            --prod \
+            --message "NEXORA Studio deploy"
