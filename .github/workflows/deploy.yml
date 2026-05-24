@@ -5,29 +5,29 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
       - name: Install Vercel CLI
         run: npm install -g vercel@latest
 
-      - name: Deploy to Vercel
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      - name: Pull Vercel env
+        run: |
+          vercel pull --yes \
+            --environment=production \
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=lionel-mangas-projects 2>&1 || true
+
+      - name: Deploy
         run: |
           vercel deploy --prod \
-            --token "$VERCEL_TOKEN" \
-            --scope "$VERCEL_ORG_ID" \
-            --name nexora-studio \
-            --yes \
-            --cwd . \
-            2>&1
+            --token=${{ secrets.VERCEL_TOKEN }} \
+            --scope=lionel-mangas-projects \
+            --name=nexora-studio \
+            --yes 2>&1
