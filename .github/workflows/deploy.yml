@@ -5,29 +5,16 @@ on:
     branches: [main]
   workflow_dispatch:
 
-env:
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Vercel CLI
-        run: npm install -g vercel@latest
-
-      - name: Pull Vercel env
-        run: |
-          vercel pull --yes \
-            --environment=production \
-            --token=${{ secrets.VERCEL_TOKEN }} \
-            --scope=lionel-mangas-projects 2>&1 || true
-
-      - name: Deploy
-        run: |
-          vercel deploy --prod \
-            --token=${{ secrets.VERCEL_TOKEN }} \
-            --scope=lionel-mangas-projects \
-            --name=nexora-studio \
-            --yes 2>&1
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-name: nexora-studio
+          vercel-args: '--prod'
+          working-directory: ./
